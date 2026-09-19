@@ -1,7 +1,7 @@
 <div align="center">
   <h1>🎙️ MicFix Ultimate Robust (ZeroCPU Edition)</h1>
   <p><strong>Advanced Magisk & KernelSU Audio Hardware Re-Initialization Module</strong></p>
-  <img src="https://img.shields.io/badge/Version-v45.0-blue?style=for-the-badge&logo=android" alt="Version">
+  <img src="https://img.shields.io/badge/Version-v1.0-blue?style=for-the-badge&logo=android" alt="Version">
   <img src="https://img.shields.io/badge/Root-Magisk%20%7C%20KernelSU-success?style=for-the-badge" alt="Root">
 </div>
 
@@ -10,7 +10,7 @@
 ## ⚡ Overview
 **MicFix Ultimate** is an advanced, hardware-level audio routing module designed to completely eradicate the infamous "no sound" race conditions and initialization delays on Android devices. This is the **most powerful and robust** iteration, built to aggressively and perfectly reconstruct the primary Handset Mic and Earpiece/Speaker paths the absolute millisecond your device receives a call.
 
-Unlike conventional fixes that poll your device state using aggressive CPU loops, v45 introduces a **true zero-CPU event listener** using native logcat filters. It blocks efficiently while idle and springs to life instantly when `MODE_RINGTONE` or `MODE_IN_CALL` intents are fired.
+Unlike conventional fixes that poll your device state using aggressive CPU loops, v1.0 introduces a **true zero-CPU event listener** using native logcat filters. It blocks efficiently while idle and springs to life instantly when `MODE_RINGTONE` or `MODE_IN_CALL` intents are fired.
 
 ---
 
@@ -42,7 +42,7 @@ Includes an executable CLI to monitor the module's live health.
 
 ## 📦 Installation
 
-1. Download the latest `MicFix_v45.0_Ultimate_Robust_ZeroCPU.zip` from the [Releases](#).
+1. Download the latest `MicFix_v1.0_Ultimate_Robust_ZeroCPU.zip` from the [Releases](#).
 2. Open **Magisk Manager** or **KernelSU**.
 3. Go to the Modules section -> **Install from Storage**.
 4. Select the downloaded ZIP file.
@@ -62,13 +62,13 @@ micfix
 **Output Example:**
 ```text
 =====================================
-       MicFix v45 Status Tool        
+       MicFix v1.0 Status Tool       
 =====================================
 
 [*] Module Status:
   -> Service is running. Recent logs:
 -------------------------------------
-[2026-09-19 10:30:00] MicFix v45 (Ultimate Robust ZeroCPU Mode) started.
+[2026-09-19 10:30:00] MicFix v1.0 (Ultimate Robust ZeroCPU Mode) started.
 [2026-09-19 10:30:15] Waiting for call events via zero-CPU logcat listener...
 -------------------------------------
 

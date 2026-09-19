@@ -14,7 +14,7 @@ log(){
 echo -1000 > /proc/$$/oom_score_adj 2>/dev/null
 
 log "=================================================="
-log "MicFix v45 (Ultimate Robust ZeroCPU Mode) started."
+log "MicFix v1.0 (Ultimate Robust ZeroCPU Mode) started."
 log "=================================================="
 
 # Wait until device is fully booted
@@ -43,7 +43,7 @@ service call SurfaceFlinger 1008 i32 1 >/dev/null 2>&1
 # Show initial boot notification
 (
     sleep 3
-    cmd notification post -S bigtext -t "MicFix Active" "MicFix" "v45: Zero-CPU Call Service & GPU UI Loaded!" >/dev/null 2>&1
+    cmd notification post -S bigtext -t "MicFix Active" "MicFix" "v1.0: Zero-CPU Call Service & GPU UI Loaded!" >/dev/null 2>&1
 ) &
 
 # Load pre-discovered tools from installation config to save battery
@@ -136,7 +136,7 @@ apply_mic_fix(){
 show_notification(){
     (
         sleep 3
-        cmd notification post -S bigtext -t "MicFix Active" "MicFix" "v45: Audio Chip Fully Reinitialized & Clean!" >/dev/null 2>&1
+        cmd notification post -S bigtext -t "MicFix Active" "MicFix" "v1.0: Audio Chip Fully Reinitialized & Clean!" >/dev/null 2>&1
     ) &
 }
 

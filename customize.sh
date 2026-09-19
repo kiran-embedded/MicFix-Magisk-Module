@@ -16,7 +16,7 @@ sleep 0.5
 ui_print " "
 ui_print " ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 ui_print "    Ultimate Robust Audio Fix (ZeroCPU Edition) "
-ui_print "                    v45.0                      "
+ui_print "                    v1.0                       "
 ui_print " ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 sleep 0.5
 ui_print "  ★ Developer: Kiran"
