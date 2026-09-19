@@ -12,7 +12,7 @@
 
 <br/><br/>
 
-> **The most advanced, hardware-level audio routing module for Android.**  
+> **Advanced, hardware-level audio routing module for Android.**  
 > Eliminates call audio delays and mic "no sound" race conditions at the hardware layer.
 
 </div>
@@ -33,19 +33,17 @@
 
 ## 🧠 Overview
 
-**MicFix** is a Magisk / KernelSU module that completely eliminates the infamous *"no sound on call"* bug at the hardware layer. Instead of relying on Android's audio stack to initialize correctly (which it often fails to do under tight timing), MicFix directly controls the ALSA/SoC mixer controls via `tinymix` to force a full, clean re-initialization of the handset microphone and earpiece routing.
-
-Built for power users who demand perfect call audio every single time.
+**MicFix** is a Magisk / KernelSU module that eliminates the *"no sound on call"* bug at the hardware layer. Instead of relying on Android's audio stack to initialize correctly (which it often fails to do under tight timing), MicFix directly controls the ALSA/SoC mixer controls via `tinymix` to force a full, clean re-initialization of the handset microphone and earpiece routing.
 
 ---
 
 ## ✨ Features
 
 ### 🎯 Zero CPU Usage — Event-Driven Architecture
-Unlike naive polling scripts that wake the CPU every 2 seconds, MicFix uses a **native `logcat` blocking listener**. It sleeps at absolute zero CPU cost and fires instantly the moment the audio subsystem transitions state.
+Instead of polling the audio state every few seconds, MicFix uses a **native `logcat` blocking listener**. It stays completely idle at zero CPU cost and fires instantly the moment the audio subsystem changes state.
 
 ### ⚡ Pre-Answer Hardware Initialization
-The moment your phone **starts ringing**, MicFix rebuilds the **entire audio route** — ADC, DEC, IIR, mixer switches — so by the time you tap "Answer", the hardware is already perfectly calibrated. Zero delay. Crystal clear audio from the very first word.
+The moment your phone **starts ringing**, MicFix rebuilds the **entire audio route** — ADC, DEC, IIR, mixer switches — so by the time you tap "Answer", the hardware is already calibrated. No delay, clean audio from the first word.
 
 ### 🔬 Deep Hardware Routing
 ```
@@ -101,7 +99,12 @@ Injects `SurfaceFlinger` directives and `system.prop` flags to force GPU renderi
 4. Select the downloaded ZIP and confirm.
 5. **Reboot** your device.
 
-> ⚠️ Requires `tinymix` binary to be present on device. Most devices with custom kernels or vendor audio HAL already include this.
+> **⚠️ Requires `tinymix`** — This module depends on the `tinymix` binary to control audio hardware registers.
+> If your device does not have it built-in, install it first using:
+>
+> **[Tinymix Binary Installer — Magisk Module](https://github.com/Dinodva/Tinymix-Binary-Installer-Magisk-Module)**
+>
+> Flash that module first, reboot, then flash MicFix.
 
 ---
 
@@ -175,11 +178,21 @@ graph TD
 <div align="center">
 
 **kiran-embedded**  
-Embedded Systems & Android Kernel Developer
+Embedded Systems & Android Developer
 
 [![GitHub](https://img.shields.io/badge/GitHub-kiran--embedded-181717?style=for-the-badge&logo=github)](https://github.com/kiran-embedded)
 
 </div>
+
+---
+
+## 🙏 Credits
+
+| Credit | Details |
+|---|---|
+| **[Dinodva](https://github.com/Dinodva)** | Creator of the [Tinymix Binary Installer](https://github.com/Dinodva/Tinymix-Binary-Installer-Magisk-Module) — the required dependency for this module to interact with the audio hardware |
+| **Magisk / KernelSU Teams** | For the module framework that makes this possible |
+| **ALSA / TinyALSA Project** | For the `tinymix` tool used to control SoC audio registers |
 
 <div align="center">
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:24243e,50:302b63,100:0f0c29&height=120&section=footer" width="100%"/>
