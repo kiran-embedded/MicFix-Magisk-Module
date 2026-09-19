@@ -1,0 +1,8 @@
+# UI/Launcher GPU Acceleration properties
+debug.sf.hw=1
+video.accelerate.hw=1
+debug.egl.hw=1
+debug.composition.type=gpu
+debug.hwui.renderer=skiagl
+ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
+debug.performance.tuning=1

@@ -1,0 +1,7 @@
+id=micfix_speaker_tx_earpiece
+name=MicFix Speaker-Mic TX (v45 Ultimate Robust ZeroCPU)
+version=45.0
+versionCode=450
+author=kirenembedded
+maintainer=kirenembedded
+description=Most powerful and robust version. Zero CPU usage using event-driven logcat monitoring. Adds auto RAM optimization to restrict WhatsApp, Facebook, etc. at boot until opened. Natively forces the entire Handset Mic hardware route to re-initialize perfectly upon call connect. Includes CLI tool (run `micfix` in terminal).

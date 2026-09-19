@@ -1,0 +1,38 @@
+#!/system/bin/sh
+
+echo "====================================="
+echo "       MicFix v45 Status Tool        "
+echo "====================================="
+
+BASE=/data/adb/micfix
+LOG="$BASE/MicFix.log"
+UNWANTED_APPS="com.whatsapp com.whatsapp.w4b com.facebook.katana com.facebook.orca com.facebook.system com.facebook.appmanager com.facebook.services com.instagram.android com.google.android.googlequicksearchbox com.snapchat.android com.zhiliaoapp.musically com.twitter.android com.amazon.mShop.android.shopping com.netflix.mediaclient com.spotify.music com.linkedin.android com.pinterest tv.twitch.android.app org.telegram.messenger com.viber.voip"
+
+echo ""
+echo "[*] Module Status:"
+if [ -f "$LOG" ]; then
+    echo "  -> Service is running. Recent logs:"
+    echo "-------------------------------------"
+    tail -n 10 "$LOG"
+    echo "-------------------------------------"
+else
+    echo "  -> Service log not found! Ensure module is active in Magisk/KernelSU."
+fi
+
+echo ""
+echo "[*] Boot RAM Optimization Status:"
+for APP in $UNWANTED_APPS; do
+    if pm list packages | grep -q "$APP"; then
+        STATE=$(cmd appops get "$APP" RUN_IN_BACKGROUND 2>/dev/null | grep "RUN_IN_BACKGROUND:")
+        echo "  -> $APP : $STATE"
+    fi
+done
+
+echo ""
+echo "[*] Current Audio Mode:"
+dumpsys audio 2>/dev/null | grep -m 1 -i 'mMode=' | awk -F'=' '{print "  -> Mode: " $2}'
+
+echo "====================================="
+echo "If you need to restore background apps manually, run:"
+echo "cmd appops set <pkg> RUN_IN_BACKGROUND allow"
+echo "====================================="
